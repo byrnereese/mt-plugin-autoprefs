@@ -1,0 +1,8 @@
+id: AutoPrefs
+name: 'AutoPrefs'
+description: "This plugin provides a framework by which a designer can automatically apply a set of blog preferences to a blog when the blog's templates are reset."
+version: 0.1
+
+callbacks:
+  blog_template_set_change: $AutoPrefs::AutoPrefs::Plugin::on_template_set_change
+
