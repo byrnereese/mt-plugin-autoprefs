@@ -35,6 +35,7 @@ For example:
      my_config:
        label: "Byrne's Preferred Config"
        description: "This is a packaging on my preferred settings for a blog."
+       order: 100
        preferences:
          file_extension: php
          allow_comments_html: 0
@@ -51,6 +52,26 @@ template set as follows:
          index:
            main_index:
              label: 'Main Index'
+
+You can also use this plugin to inject data into an MT::PluginData record. This
+allows for themes to auto-configure plugins as well.
+
+   blog_preferences:
+     my_config:
+       label: "Byrne's Preferred Config"
+       description: "This is a packaging on my preferred settings for a blog."
+       order: 100
+       plugin_data:
+         FacebookCommenters:
+           facebook_app_secret: xxxxxx
+           facebook_app_key: xxxxxx
+       preferences:
+         file_extension: php
+         allow_comments_html: 0
+
+*Note: This will only configure blog level settings. System level settings for
+plugins must be configured manually. This seems like a reasonable restriction to
+keep plugins from obliterating configs inadvertently.*
 
 ### Supported Preferences
 

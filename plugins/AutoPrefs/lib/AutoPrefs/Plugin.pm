@@ -77,12 +77,34 @@ sub _apply_prefs {
     my ($blog, $pid) = @_;
 
     my $label = &{ MT->registry('blog_preferences')->{$pid}->{label} };
+
+    my $plugins = MT->registry('blog_preferences')->{$pid}->{'plugin_data'};
+    foreach my $plugin_id (keys %$plugins) {
+	my $plugin = MT->component($plugin_id);
+	next if !$plugin;
+	MT->log({
+	    blog_id => $blog->id,
+	    message => "The AutoPrefs plugin is configuring " .$plugin->name. " for " . $blog->name . ".",
+	    level => MT::Log::INFO(),
+	});
+
+	my $scope = "blog:" . $blog->id;
+        my $pdata = $plugin->get_config_obj($scope);
+        my $data = $pdata->data() || {};
+	my $datas = MT->registry('blog_preferences')->{$pid}->{'plugin_data'}->{$plugin_id};
+	foreach my $key (keys %$datas) {
+	    $data->{$key} = $datas->{$key};
+	}
+        $pdata->data($data);
+        MT->request('plugin_config.'.$plugin->id, undef);
+        $pdata->save() or die $pdata->errstr;	
+    }
+
     MT->log({
 	blog_id => $blog->id,
 	message => "The AutoPrefs plugin is configuring " . $blog->name . " with $label.",
 	level => MT::Log::INFO(),
     });
-
     my $prefs = MT->registry('blog_preferences')->{$pid}->{'preferences'};
     foreach my $col (keys %$prefs) {
 	my $value = $prefs->{$col};
