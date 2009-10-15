@@ -58,69 +58,68 @@ Below is a list of all the supported preferences and their default value. There
 is no need to specify a default preference in your `config.yaml` unless you 
 intend to override the default. 
 
-* `allow_anon_comments` (default: ) - 
-* `allow_comment_html` (default: ) - 
-* `allow_commenter_regist` (default: ) - 
-* `allow_comments_default` (default: ) - 
-* `allow_pings` (default: ) - 
-* `allow_pings_default` (default: ) - 
-* `allow_reg_comments` (default: ) - 
-* `allow_unreg_comments` (default: ) - 
-* `archive_type` (default: ) - 
-* `archive_type_preferred` (default: ) - 
-* `autodiscover_links` (default: ) - 
-* `autolink_urls` (default: ) - 
-* `basename_limit` (default: ) - 
-* `captcha_provider` (default: ) - 
-* `cc_license` (default: ) - 
+* `allow_anon_comments` (default: 0) - 
+* `allow_comment_html` (default: 1) - 
+* `allow_commenter_regist` (default: 1) - 
+* `allow_comments_default` (default: 1) - 
+* `allow_pings` (default: 1) - 
+* `allow_pings_default` (default: 1) - 
+* `allow_reg_comments` (default: 1) - 
+* `allow_unreg_comments` (default: 0) - 
+* `archive_type` (default: '') - 
+* `archive_type_preferred` (default: '') - 
+* `autodiscover_links` (default: 0) - 
+* `autolink_urls` (default: 1) - 
+* `basename_limit` (default: 100) - 
+* `captcha_provider` (default: *null*) - 
+* `cc_license` (default: *null*) - 
 * `commenter_authenticators` (default: ) - 
-* `convert_paras` (default: ) - 
-* `convert_paras_comments` (default: ) - 
-* `custom_dynamic_templates` (default: ) - 
-* `days_on_index` (default: ) - 
-* `email_new_comments` (default: ) - 
-* `email_new_pings` (default: ) - 
-* `entries_on_index` (default: ) - 
-* `file_extension` (default: ) - 
-* `follow_auth_links` (default: ) - 
-* `google_api_key` (default: ) - 
-* `image_default_align` (default: ) - 
-* `image_default_constrain` (default: ) - 
-* `image_default_thumb` (default: ) - 
-* `image_default_width` (default: ) - 
-* `image_default_popup` (default: ) - 
-* `image_default_wrap_text` (default: ) - 
-* `image_default_wunits` (default: ) - 
-* `include_cache` (default: ) - 
-* `include_system` (default: ) - 
-* `internal_autodiscovery` (default: ) - 
-* `is_dynamic` (default: ) - 
-* `junk_folder_expiry` (default: ) - 
-* `junk_score_threshold` (default: ) - 
-* `language` (default: ) - 
-* `manual_approve_commenters` (default: ) - 
-* `moderate_pings` (default: ) - 
-* `moderate_unreg_comments` (default: ) - 
-* `nofollow_urls` (default: ) - 
+* `convert_paras` (default: *default text format*) - 
+* `convert_paras_comments` (default: 1) - 
+* `custom_dynamic_templates` (default: 'none') - 
+* `days_on_index` (default: 0) - 
+* `email_new_comments` (default: 1) - 
+* `email_new_pings` (default: 1) - 
+* `entries_on_index` (default: 10) - 
+* `file_extension` (default: 'html') - 
+* `follow_auth_links` (default: 1) - 
+* `image_default_align` (default: *null*) - 
+* `image_default_constrain` (default: *null*) - 
+* `image_default_thumb` (default: *null*) - 
+* `image_default_width` (default: *null*) - 
+* `image_default_popup` (default: *null*) - 
+* `image_default_wrap_text` (default: *null*) - 
+* `image_default_wunits` (default: *null*) - 
+* `include_cache` (default: 0) - 
+* `include_system` (default: 0) - 
+* `internal_autodiscovery` (default: 0) - 
+* `is_dynamic` (default: 0) - 
+* `junk_folder_expiry` (default: 14) - In days.
+* `junk_score_threshold` (default: 0) - 
+* `language` (default: *derived from config file, or from server*) - 
+* `manual_approve_commenters` (default: 0) - 
+* `moderate_pings` (default: 1) - 
+* `moderate_unreg_comments` (default: 2) - none = 0, all = 1, untrusted = 2, unauthenticated = 3.
+* `nofollow_urls` (default: 1) - 
 * `nwc_smart_replace` (default: ) - 
 * `nwc_replace_field` (default: ) - 
-* `ping_blogs` (default: ) - 
-* `ping_google` (default: ) - 
-* `ping_others` (default: ) - 
-* `ping_technorati` (default: ) - 
-* `ping_weblogs` (default: ) - 
+* `ping_blogs` (default: 0) - 
+* `ping_google` (default: 0) - 
+* `ping_others` (default: 0) - 
+* `ping_technorati` (default: 0) - 
+* `ping_weblogs` (default: 0) - 
 * `remote_auth_token` (default: ) - 
-* `require_comment_emails` (default: ) - 
-* `require_typekey_emails` (default: ) - 
-* `sanitize_spec` (default: ) - 
-* `server_offset` (default: ) - 
-* `sort_order_comments` (default: ) - 
-* `sort_order_posts` (default: ) - 
-* `status_default` (default: ) - 
-* `update_pings` (default: ) - 
-* `use_comment_confirmation` (default: ) - 
-* `welcome_msg` (default: ) - 
-* `words_in_excerpt` (default: ) - 
+* `require_comment_emails` (default: 0) - 
+* `require_typekey_emails` (default: 0) - 
+* `sanitize_spec` (default: 0) - 
+* `server_offset` (default: *determined from config file or server*) - 
+* `sort_order_comments` (default: 'ascend') - 
+* `sort_order_posts` (default: 'descend') - 
+* `status_default` (default: 2) - unpublished = 1, published = 2, review = 3, scheduled = 4, junk = 5
+* `update_pings` (default: *null*) - 
+* `use_comment_confirmation` (default: 1) - 
+* `welcome_msg` (default: 0) - 
+* `words_in_excerpt` (default: 40) - 
 
 # License
 

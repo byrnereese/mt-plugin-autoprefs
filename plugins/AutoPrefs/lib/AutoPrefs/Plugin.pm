@@ -12,8 +12,12 @@ sub apply {
     my $blog    = MT->model('blog')->load( $q->param('blog_id') );
     my $pid     = $q->param('pref_id');
 
-    _apply_prefs( $blog, $pid );
-    
+    if ($pid eq '__default__') {
+	$blog->set_defaults();
+    } else {
+	_apply_prefs( $blog, $pid );
+    }
+
     return $app->redirect(
 	$app->uri(
 	    'mode' => 'autoprefs_chooser',
