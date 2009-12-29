@@ -1,23 +1,25 @@
+# AutoPrefs, a plugin for Melody and Movable Type #
+
 This plugins provides a framework by which a blog, through it's 
 config.yaml file, can dictate a collection of settings that can
 easily be applied to a blog. 
 
-# Installation
+## Installation ##
 
 To install this plugin follow the instructions found here:
 
 http://tinyurl.com/easy-plugin-install
 
-# Usage
+## Usage ##
 
-## Users and Admins
+### Users and Admins ###
 
 For the most part, users and admins never interact with this plugin directly.
 All a user needs to do is RESET their templates, and if the theme they apply
 supports this plugin and this plugin is installed, then the blog's preferences
 will automagically be setup.
 
-## Developers
+### Developers ###
 
 Developers can use this plugin to automatically apply a set of blog preferences
 to a blog when a user resets their blog templates. The format for specifying 
@@ -29,51 +31,52 @@ key). Then provide some additional descriptive meta data about the preferences
 group and finally provide a list of all the preferences you want to override. 
 For example:
 
-   name: 'My Plugin'
-   description: 'This is a sample plugin showing off Auto Prefs.'
-   blog_preferences:
-     my_config:
-       label: "Byrne's Preferred Config"
-       description: "This is a packaging on my preferred settings for a blog."
-       order: 100
-       preferences:
-         file_extension: php
-         allow_comments_html: 0
+    name: 'My Plugin'
+    description: 'This is a sample plugin showing off Auto Prefs.'
+
+    blog_preferences:
+      my_config:
+        label: "Byrne's Preferred Config"
+        description: "This is a packaging on my preferred settings for a blog."
+        order: 100
+        preferences:
+          file_extension: php
+          allow_comments_html: 0
 
 *Note: in the example above, the preference group ID is `my_config`.*
 
 Once the preferences group has been defined, then it can be referenced by a 
 template set as follows:
 
-   template_sets:
-     myset:
-       blog_preferences: my_config
-       templates:
-         index:
-           main_index:
-             label: 'Main Index'
+    template_sets:
+      myset:
+        blog_preferences: my_config
+        templates:
+          index:
+            main_index:
+              label: 'Main Index'
 
-You can also use this plugin to inject data into an MT::PluginData record. This
+You can also use this plugin to inject data into an `MT::PluginData` record. This
 allows for themes to auto-configure plugins as well.
 
-   blog_preferences:
-     my_config:
-       label: "Byrne's Preferred Config"
-       description: "This is a packaging on my preferred settings for a blog."
-       order: 100
-       plugin_data:
-         FacebookCommenters:
-           facebook_app_secret: xxxxxx
-           facebook_app_key: xxxxxx
-       preferences:
-         file_extension: php
-         allow_comments_html: 0
+    blog_preferences:
+      my_config:
+        label: "Byrne's Preferred Config"
+        description: "This is a packaging on my preferred settings for a blog."
+        order: 100
+        plugin_data:
+          FacebookCommenters:
+            facebook_app_secret: xxxxxx
+            facebook_app_key: xxxxxx
+        preferences:
+          file_extension: php
+          allow_comments_html: 0
 
 *Note: This will only configure blog level settings. System level settings for
 plugins must be configured manually. This seems like a reasonable restriction to
 keep plugins from obliterating configs inadvertently.*
 
-### Supported Preferences
+#### Supported Preferences ####
 
 Below is a list of all the supported preferences and their default value. There
 is no need to specify a default preference in your `config.yaml` unless you 
@@ -142,6 +145,6 @@ intend to override the default.
 * `welcome_msg` (default: 0) - 
 * `words_in_excerpt` (default: 40) - 
 
-# License
+## License ##
 
 This plugin is licensed under the same terms as Perl itself.
