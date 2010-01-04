@@ -2,6 +2,6 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME            => 'Auto Prefs',
-    VERSION         => '0.3',
+    VERSION         => '0.4',
     DISTNAME        => 'AutoPrefs',
 );
