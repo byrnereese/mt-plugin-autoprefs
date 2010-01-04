@@ -79,12 +79,12 @@ Below is a list of all the supported preferences and their default value. There
 is no need to specify a default preference in your `config.yaml` unless you 
 intend to override the default. 
 
-* `allow_anon_comments` (default: 0) - 
-* `allow_comment_html` (default: 1) - 
-* `allow_commenter_regist` (default: 1) - 
-* `allow_comments_default` (default: 1) - 
-* `allow_pings` (default: 1) - 
-* `allow_pings_default` (default: 1) - 
+* `allow_anon_comments` (default: 0) - Allow anonymous comments on the blog.
+* `allow_comment_html` (default: 1) - Allow HTML to be used within comments.
+* `allow_commenter_regist` (default: 1) - Allow visitors to register for new accounts from the sign in screen.
+* `allow_comments_default` (default: 1) - Turn on comments by default for new entries.
+* `allow_pings` (default: 1) - Global toggle for TrackBacks.
+* `allow_pings_default` (default: 1) - Turn on TrackBacks by default for new entries.
 * `allow_reg_comments` (default: 1) - 
 * `allow_unreg_comments` (default: 0) - 
 * `archive_type` (default: '') - 
@@ -94,7 +94,17 @@ intend to override the default.
 * `basename_limit` (default: 100) - 
 * `captcha_provider` (default: *null*) - 
 * `cc_license` (default: *null*) - 
-* `commenter_authenticators` (default: ) - 
+* `commenter_authenticators` (default: ) - Determines which authentication options are enabled by default. The value of this property should be a comma delimited list of acceptable values. Acceptable values are:
+  * MovableType
+  * OpenID
+  * LiveJournal
+  * Vox
+  * Google
+  * Yahoo
+  * AIM 
+  * WordPress - requires WordPress Auth plugin
+  * Twitter - requires Twitter Commenters plugin
+  * Facebook - requires Facebook Connect plugin
 * `convert_paras` (default: *default text format*) - 
 * `convert_paras_comments` (default: 1) - 
 * `custom_dynamic_templates` (default: 'none') - 
@@ -111,8 +121,12 @@ intend to override the default.
 * `image_default_popup` (default: *null*) - 
 * `image_default_wrap_text` (default: *null*) - 
 * `image_default_wunits` (default: *null*) - 
-* `include_cache` (default: 0) - 
-* `include_system` (default: 0) - 
+* `include_cache` (default: 0) - Turns on/off template module caching for the blog.
+* `include_system` (default: 0) - Determines what SSI include system to use. Acceptable values are:
+  * php
+  * jsp
+  * asp
+  * shtml
 * `internal_autodiscovery` (default: 0) - 
 * `is_dynamic` (default: 0) - 
 * `junk_folder_expiry` (default: 14) - In days.
@@ -120,7 +134,11 @@ intend to override the default.
 * `language` (default: *derived from config file, or from server*) - 
 * `manual_approve_commenters` (default: 0) - 
 * `moderate_pings` (default: 1) - 
-* `moderate_unreg_comments` (default: 2) - none = 0, all = 1, untrusted = 2, unauthenticated = 3.
+* `moderate_unreg_comments` (default: 2) - Controls the commenting and moderation policy for the blog. Acceptable values range from 0 to 3. They are:
+  * 0 - Immediately approve comments from anyone
+  * 1 - Immediately approve comments from none
+  * 2 - Immediately approve comments from trusted commenters only
+  * 3 - Immediately approve comments from any authenticated commenter
 * `nofollow_urls` (default: 1) - 
 * `nwc_smart_replace` (default: ) - 
 * `nwc_replace_field` (default: ) - 
