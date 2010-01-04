@@ -50,7 +50,7 @@ sub chooser {
             name        => &{ $pref->{'label'} },
             description => $pref->{'description'},
             order       => $pref->{'order'} || 10,
-            selected    => $blog->selected_config eq $pid,
+            selected    => $blog->selected_config eq $pid
           };
     }
     @data = sort { $a->{order} <=> $b->{order} } @data;
@@ -137,7 +137,7 @@ sub _apply_prefs {
             );
         }
     }
-    $blog->meta( 'selected_config', $pid);
+    $blog->meta( 'selected_config', $pid );
     $blog->save;
 }
 
