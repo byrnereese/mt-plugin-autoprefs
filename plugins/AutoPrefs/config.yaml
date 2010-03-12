@@ -1,6 +1,10 @@
 id: AutoPrefs
-name: 'AutoPrefs'
+name: AutoPrefs
 description: "This plugin provides a framework by which a designer can automatically apply a set of blog preferences to a blog when the blog's templates are reset."
+author_name: Byrne Reese, Endevver
+author_link: http://endevver.com/
+plugin_link: http://github.com/endevver/mt-plugin-autoprefs
+doc_link: "http://github.com/endevver/mt-plugin-autoprefs#readme"
 version: 0.4
 schema_version: 1
 
